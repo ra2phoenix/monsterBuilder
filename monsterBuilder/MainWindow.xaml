@@ -1,0 +1,131 @@
+﻿<Window x:Class="monsterBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:monsterBuilder"
+        mc:Ignorable="d"
+        Title="Monster Builder" Height="800" Width="1200">
+    
+    <Grid Margin="0,0,-0.4,0.4">
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,0,0">
+            <TabItem Header="Monster">
+                <Grid Background="#FFE5E5E5" Margin="0,0,0.4,0.4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="550"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <WrapPanel Grid.Row="0">
+                        <Label Content="Name"/>
+                        <TextBox Text="" Width="250"/>
+                        <Label Content="CR"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Size"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Type"/>
+                        <TextBox Text="" Width="100"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="1">
+                        <Label Content="AC"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Hp"/>
+                        <TextBox Text="" Width="40"/>
+                        <Label Content="Speed"/>
+                        <TextBox Text="" Width="100"/>
+                        <Label Content="CRInfo" Margin="10,0,0,0"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="2">
+                        <Label Content="Str"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                        <Label Content="Dex"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                        <Label Content="Con"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                        <Label Content="Int"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                        <Label Content="Wis"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                        <Label Content="Cha"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Mod"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="3">
+                        <Label Content="Immune"/>
+                        <TextBox Text="" Width="150"/>
+                        <CheckBox ToolTip="Calculate immunity for defensive CR"/>
+                        <Label Content="Resist" Margin="10,0,0,0"/>
+                        <TextBox Text="" Width="150"/>
+                        <CheckBox ToolTip="Calculate resistance for defensive CR"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="4">
+                        <Label Content="Vulnerable"/>
+                        <TextBox Text="" Width="100"/>
+                        <Label Content="Condition Immune"/>
+                        <TextBox Text="" Width="250"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="5">
+                        <Label Content="Vision"/>
+                        <TextBox Text="" Width="100"/>
+                        <Label Content="Saves"/>
+                        <TextBox Text="" Width="100"/>
+                        <Label Content="Slots"/>
+                        <TextBox Text="" Width="100"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="6">
+                        <Label Content="Notes 1"/>
+                        <TextBox Text="" Width="400"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="7">
+                        <Label Content="Notes 2"/>
+                        <TextBox Text="" Width="400"/>
+                    </WrapPanel>
+                    <WrapPanel Grid.Row="8">
+                        <Label Content="TraitMods"/>
+                        <Label Content="AC" Margin="10,0,0,0"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="Hp"/>
+                        <TextBox Text="" Width="25"/>
+                        <Label Content="HitBonus"/>
+                        <TextBox Text="" Width="25"/>
+                    </WrapPanel>
+
+                    <DataGrid Grid.Column="1" Grid.RowSpan="6"  Name="dgActions" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True"
+                              CanUserReorderColumns="False" ItemsSource="{Binding}" KeyboardNavigation.TabNavigation="Contained">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="100"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="200"/>
+                            <DataGridTextColumn Header="Text" Binding="{Binding Text}" Width="*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Encounter">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
